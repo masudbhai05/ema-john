@@ -1,0 +1,36 @@
+.review-item{
+    width: 571px;
+    border: 2px solid #b9b8b8;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 10px;
+    display: flex;
+}
+.review-details{
+    flex-grow: 1;
+}
+.review-details .product-title{
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+}
+.review-details p{
+    margin: 0 15px;
+}
+
+.review-item img{
+    width: 91px;
+    height: 91px;
+    border-radius: 6px;
+}
+.orange-text{
+    color: orange;
+}
+
+/* this is here button styles */
+.btn-delete{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgba(242, 31, 66, 0.307);
+}

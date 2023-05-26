@@ -1,9 +1,25 @@
 import React from 'react';
+import Cart from '../Cart/Cart';
+import './Orders.css'
+import { useLoaderData } from 'react-router-dom';
+import ReviewItem from '../ReviwItem/ReviewItem';
 
 const Orders = () => {
+    const cart = useLoaderData();
+    console.log(cart);
     return (
-        <div>
-           <h1>This is a orders page</h1> 
+        <div className='shop-container'>
+            <div className="review-container">
+                {
+                    cart.map(product => <ReviewItem
+                        key={product.id}
+                        product = {product}
+                    ></ReviewItem>)
+                }
+            </div>
+            <div className="cart-container">
+                <Cart cart={cart}></Cart>
+            </div>
         </div>
     );
 };
