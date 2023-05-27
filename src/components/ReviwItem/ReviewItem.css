@@ -5,6 +5,8 @@
     margin: 20px 0;
     padding: 10px;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .review-details{
     flex-grow: 1;
@@ -33,4 +35,8 @@
     height: 55px;
     border-radius: 50%;
     background-color: rgba(242, 31, 66, 0.307);
+}
+.delete-icon{
+    color: #e20157;
+
 }

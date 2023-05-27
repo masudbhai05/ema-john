@@ -1,3 +1,15 @@
 .review-container{
     margin: 50px auto;
 }
+.btn-clear-cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 10px auto;
+    background-color: #ff2222cf;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}

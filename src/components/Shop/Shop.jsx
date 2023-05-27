@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import './Shop.css';
 import Cart from '../Cart/Cart';
-import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -19,15 +19,15 @@ const Shop = () => {
         const saveCart = [];
         for (const id in storedCart) {
             const addedProduct = products.find(product => product.id === id);
-            if(addedProduct){
+            if (addedProduct) {
                 const quantity = storedCart[id];
                 addedProduct.quantity = quantity;
                 saveCart.push(addedProduct)
             }
-            console.log('Added product',addedProduct)
+            console.log('Added product', addedProduct)
         }
         setCart(saveCart);
-    },[products])
+    }, [products])
 
     const handleAddToCart = (product) => {
         // cart.push(product);
@@ -36,7 +36,7 @@ const Shop = () => {
         const exists = cart.find(pd => pd.id === product.id);
         if (!exists) {
             product.quantity = 1;
-            newCart = [...cart,product]
+            newCart = [...cart, product]
         }
         else {
             exists.quantity = exists.quantity + 1;
@@ -45,6 +45,10 @@ const Shop = () => {
         }
         setCart(newCart);
         addToDb(product.id)
+    }
+    const handleClearCart = () => {
+        setCart([])
+        deleteShoppingCart()
     }
 
     return (
@@ -59,7 +63,10 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart
+                    cart={cart}
+                    handleClearCart={handleClearCart}
+                ></Cart>
             </div>
         </div>
     );
