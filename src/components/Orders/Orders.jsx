@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
 import './Orders.css'
-import { useLoaderData } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
+import { Link, useLoaderData } from 'react-router-dom';
 import ReviewItem from '../ReviwItem/ReviewItem';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 
@@ -33,7 +35,14 @@ const Orders = () => {
                 <Cart
                     cart={cart}
                     handleClearCart={handleClearCart}
-                ></Cart>
+                >
+                    <Link to="/checkout" className='btn-Llink'>
+                        <button className='btn-proceed'>
+                            <span>Proceed Checkout</span>
+                            <FontAwesomeIcon icon={faCreditCard} />
+                        </button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
